@@ -1,0 +1,16 @@
+.container
+{
+    width: 1000px;
+    height: 1000px;
+    background-color: darkkhaki;
+    display: flex;
+}
+
+.container-main
+{
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

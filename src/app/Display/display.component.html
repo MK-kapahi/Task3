@@ -1,0 +1,74 @@
+<div class="container-main">
+  <div style="width: 200px; height: 1000px; background-color: antiquewhite;">
+  <nav-root></nav-root>
+  </div>
+<div class="container">
+  <div>
+    <select class="form-select" aria-label="Default select example">
+      <option selected  >Open this select menu</option>
+      <option [value]="'val'"  *ngFor="let val of Statusarr">{{val}}</option>
+    </select>
+  </div>
+  <div>
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <th>ID</th>
+          <th>Project_name</th>
+          <th>Status</th>
+          <th>Start_Date</th>
+          <th>End_Date</th>
+          <th>Action</th>
+        </tr>
+      </tbody>
+      <tbody>
+      <tr *ngFor="let val of data, let i=index">
+        <td>{{val.id}}</td>
+        <td>{{val.name}}</td>
+        <td>{{val.status}}</td>
+        <td>{{val.Startdate}}</td>
+        <td>{{val.Enddate}}</td>
+        <td>
+          <select class="form-select" aria-label="Default select example"  (change)="Selectedval(i,val.id,$event)">
+            <option selected>Open this select menu </option>
+            <option value="Cancel" [selected]="val.status==='Cancel'">Cancel</option>
+            <option value="on_Hold" [selected]="val.status==='on_Hold'">Hold</option>
+            <option value="Complete" [selected]="val.status==='Complete'">Complete</option>
+            <option value="Resume" [selected]="val.status==='Resume'">Resume</option>
+          </select>
+        </td>
+          
+        <!-- <td> <button type="button" (click)="Show(val.status,val.id)">Edit</button></td> -->
+        <!-- <tr [ngSwitch]="case">
+            <td *ngSwitchCase="'in_progress'">
+              <select class="form-select" aria-label="Default select example" (change)="Selectedval()" ngDefaultControl [(ngModel)]='selectedvalue'>
+                <option selected  value="" >Open this select menu</option>
+                <option value="0">Cancel</option>
+                <option value="2" >Hold</option>
+                <option value="1">Complete</option>
+              </select>
+            </td>
+          <td *ngSwitchCase="'Default'">
+            <select class="form-select" aria-label="Default select example">
+              <option selected>No action defined</option>
+            </select>
+          </td>
+          <td *ngSwitchCase="'not_started'">
+            <select class="form-select" aria-label="Default select example" (change)="Selectedval()" ngDefaultControl [(ngModel)]='selectedvalue'>
+              <option selected value="">Open this select menu</option>
+              <option value="3">in_progress</option>
+              <option value="0">Cancel</option>
+            </select>
+          </td>
+          <td *ngSwitchCase="'on_Hold'">
+            <select class="form-select" aria-label="Default select example" (change)="Selectedval()" ngDefaultControl [(ngModel)]='selectedvalue' >
+              <option selected  value=""  >Open this select menu</option>
+              <option value="4" >Resume</option>
+              <option value="0">Cancel</option>
+            </select>
+          </td> 
+      </tr> -->
+      </tbody>
+    </table>
+  </div>
+</div> 
